@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.16)
+#cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.1)
 set(PROJECT_NAME salt_utxo_cpp)
 
 project(${PROJECT_NAME})

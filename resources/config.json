@@ -7,6 +7,6 @@
   "local-docker": {
     "host": "0.0.0.0",
     "port": 7000,
-    "dbConnectionString": "postgresql://postgres:changeme@db:5432/postgres"
+    "dbConnectionString": "postgresql://postgres:changeme@psql_utxo:5432/postgres"
   }
 }
