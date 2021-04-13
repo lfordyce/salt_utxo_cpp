@@ -1,0 +1,12 @@
+{
+  "dev": {
+    "host": "0.0.0.0",
+    "port": 7000,
+    "dbConnectionString": "postgresql://postgres:changeme@localhost:5432/postgres"
+  },
+  "local-docker": {
+    "host": "0.0.0.0",
+    "port": 7000,
+    "dbConnectionString": "postgresql://postgres:changeme@db:5432/postgres"
+  }
+}

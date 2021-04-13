@@ -1,0 +1,14 @@
+*.o
+build/
+
+cmake-build-debug/
+cmake-build-release/
+CMakeFiles
+
+.idea/
+.DS_Store
+
+ott_keylib
+ott_keylib.cbp
+CMakeCache.txt
+cmake_install.cmake
