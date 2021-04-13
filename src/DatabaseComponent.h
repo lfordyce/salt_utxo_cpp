@@ -19,8 +19,8 @@ public:
         /* Create database-specific ConnectionPool */
         auto connectionPool = oatpp::postgresql::ConnectionPool::createShared(connectionProvider,
                                                                               10 /* max-connections */,
-                                                                              std::chrono::seconds(5) /* connection TTL */);
-
+                                                                              std::chrono::seconds(
+                                                                                      5) /* connection TTL */);
         /* Create database-specific Executor */
         auto executor = std::make_shared<oatpp::postgresql::Executor>(connectionPool);
 

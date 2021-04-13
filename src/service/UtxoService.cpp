@@ -1,6 +1,6 @@
 #include "UtxoService.h"
 
-oatpp::Object<PageDto<oatpp::Object<UtxoDto>>>
+oatpp::Object<PaginationDto<oatpp::Object<UtxoDto>>>
 UtxoService::findAllRecords(const oatpp::UInt32 &offset, const oatpp::UInt32 &limit) {
 
     oatpp::UInt32 countToFetch = limit;
@@ -13,7 +13,7 @@ UtxoService::findAllRecords(const oatpp::UInt32 &offset, const oatpp::UInt32 &li
 
     auto items = dbResult->fetch<oatpp::Vector<oatpp::Object<UtxoDto>>>();
 
-    auto page = PageDto<oatpp::Object<UtxoDto>>::createShared();
+    auto page = PaginationDto<oatpp::Object<UtxoDto>>::createShared();
     page->offset = offset;
     page->limit = countToFetch;
     page->count = items->size();

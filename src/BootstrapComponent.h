@@ -29,8 +29,8 @@ public:
 
             const char *profileArg = std::getenv("CONFIG_PROFILE"); // first read from env variable
             if (profileArg == nullptr) {
-                profileArg = m_cmdArgs.getNamedArgumentValue("--profile",
-                                                             "dev"); // if no env varioable get from command line
+                // if no env variables get from command line
+                profileArg = m_cmdArgs.getNamedArgumentValue("--profile", "dev");
             }
 
             OATPP_LOGD("Server", "Loading configuration profile '%s'", profileArg);

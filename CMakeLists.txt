@@ -15,7 +15,7 @@ add_library(${PROJECT_NAME}-lib
         src/dto/StatusDto.h
         src/dto/ConfigDto.h
         src/dto/UtxoDto.h
-        src/dto/PageDto.h
+        src/dto/PaginationDto.h
         src/dto/BalanceDto.h
         src/db/UtxoDb.h
         src/controller/UtxoController.h

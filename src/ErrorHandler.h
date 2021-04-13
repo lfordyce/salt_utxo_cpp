@@ -14,10 +14,10 @@ private:
     std::shared_ptr<oatpp::data::mapping::ObjectMapper> m_objectMapper;
 public:
 
-    ErrorHandler(const std::shared_ptr<oatpp::data::mapping::ObjectMapper>& objectMapper);
+    ErrorHandler(const std::shared_ptr<oatpp::data::mapping::ObjectMapper> &objectMapper);
 
     std::shared_ptr<OutgoingResponse>
-    handleError(const Status& status, const oatpp::String& message, const Headers& headers) override;
+    handleError(const Status &status, const oatpp::String &message, const Headers &headers) override;
 
 };
 

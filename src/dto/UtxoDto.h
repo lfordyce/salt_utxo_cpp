@@ -13,13 +13,10 @@ class UtxoDto : public oatpp::DTO {
 
     DTO_INIT(UtxoDto, DTO)
 
-    DTO_FIELD(oatpp::postgresql::Uuid, id);
+    DTO_FIELD(String, id);
     DTO_FIELD(String, txid);
-
     DTO_FIELD(String, address);
-
     DTO_FIELD(String, amount);
-
     DTO_FIELD(Boolean, spent);
 };
 

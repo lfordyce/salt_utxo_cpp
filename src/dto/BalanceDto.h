@@ -8,7 +8,9 @@
 
 class BalanceDto : public oatpp::DTO {
     DTO_INIT(BalanceDto, DTO)
-    DTO_FIELD(String , balance); // TODO
+
+    DTO_FIELD(String, balance);
+
     DTO_FIELD(Int64, tx_count);
 };
 

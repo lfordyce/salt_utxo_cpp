@@ -15,7 +15,7 @@ class ServiceComponent {
 public:
 
     /**
-     *  Create ObjectMapper component to serialize/deserialize DTOs in Contoller's API
+     *  Create ObjectMapper component to serialize/deserialize DTOs in Controller's API
      */
     OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>, apiObjectMapper)([] {
         auto mapper = oatpp::parser::json::mapping::ObjectMapper::createShared();
@@ -28,7 +28,8 @@ public:
      */
     OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ServerConnectionProvider>, serverConnectionProvider)([] {
         OATPP_COMPONENT(oatpp::Object<ConfigDto>, config); // Get config component
-        return oatpp::network::tcp::server::ConnectionProvider::createShared({"0.0.0.0", config->port, oatpp::network::Address::IP_4});
+        return oatpp::network::tcp::server::ConnectionProvider::createShared(
+                {"0.0.0.0", config->port, oatpp::network::Address::IP_4});
     }());
 
     /**
@@ -43,7 +44,8 @@ public:
      */
     OATPP_CREATE_COMPONENT(std::shared_ptr<oatpp::network::ConnectionHandler>, serverConnectionHandler)([] {
         OATPP_COMPONENT(std::shared_ptr<oatpp::web::server::HttpRouter>, router); // get Router component
-        OATPP_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>, objectMapper); // get ObjectMapper component
+        OATPP_COMPONENT(std::shared_ptr<oatpp::data::mapping::ObjectMapper>,
+                        objectMapper); // get ObjectMapper component
 
         auto connectionHandler = oatpp::web::server::HttpConnectionHandler::createShared(router);
         connectionHandler->setErrorHandler(std::make_shared<ErrorHandler>(objectMapper));
