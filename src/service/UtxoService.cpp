@@ -33,3 +33,11 @@ oatpp::Object<BalanceDto> UtxoService::findBalanceByAddress(const oatpp::String 
 
     return result[0];
 }
+
+oatpp::Vector<oatpp::Object<AddressDto>> UtxoService::findAddressAll() {
+    auto queryResult = m_database->findAllAddress();
+    OATPP_ASSERT_HTTP(queryResult->isSuccess(), Status::CODE_500, queryResult->getErrorMessage());
+
+    auto dataset = queryResult->fetch<oatpp::Vector<oatpp::Object<AddressDto>>>();
+    return dataset;
+}

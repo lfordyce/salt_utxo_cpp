@@ -27,14 +27,19 @@ public:
         return std::make_shared<UtxoController>(objectMapper);
     }
 
-    ENDPOINT("GET", "utxo/offset/{offset}/limit/{limit}", getUtxoRecordds,
+    ENDPOINT("GET", "api/v1/records/offset/{offset}/limit/{limit}", getUtxoRecordds,
              PATH(UInt32, offset),
              PATH(UInt32, limit)) {
         OATPP_LOGI("Records", "offset=%d limit=%d", *offset.get(), *limit.get());
         return createDtoResponse(Status::CODE_200, m_utxoService.findAllRecords(offset, limit));
     }
 
-    ENDPOINT("GET", "balance/{address}", getBalanceByAddress,
+    ENDPOINT("GET", "api/v1/addrs", getAddresses) {
+        OATPP_LOGI("Get all distinct addresses", "");
+        return createDtoResponse(Status::CODE_200, m_utxoService.findAddressAll());
+    }
+
+    ENDPOINT("GET", "api/v1/addrs/{address}", getBalanceByAddress,
              PATH(String, address, "address"),
              QUERY(Boolean, spent, "unspentOnly")) {
         OATPP_LOGI("Balance", "address=%s", address->getData());

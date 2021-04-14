@@ -5,6 +5,7 @@
 #include "dto/StatusDto.h"
 #include "dto/PaginationDto.h"
 #include "dto/BalanceDto.h"
+#include "dto/Address.h"
 
 #include "oatpp/web/protocol/http/Http.hpp"
 #include "oatpp/core/macro/component.hpp"
@@ -17,6 +18,7 @@ private:
 public:
     oatpp::Object<PaginationDto<oatpp::Object<UtxoDto>>> findAllRecords(const oatpp::UInt32& offset, const oatpp::UInt32& limit);
     oatpp::Object<BalanceDto> findBalanceByAddress(const oatpp::String& address, const oatpp::Boolean& spent);
+    oatpp::Vector<oatpp::Object<AddressDto>> findAddressAll();
 };
 
 #endif //SALT_UTXO_CPP_UTXOSERVICE_H

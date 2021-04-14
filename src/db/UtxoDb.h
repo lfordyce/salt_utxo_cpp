@@ -22,6 +22,10 @@ public:
           PREPARE(true),
           PARAM(oatpp::String, address),
           PARAM(oatpp::Boolean, spent))
+
+    QUERY(findAllAddress,
+          "SELECT DISTINCT address FROM btc_utxo;",
+          PREPARE(true))
 };
 
 #include OATPP_CODEGEN_END(DbClient)

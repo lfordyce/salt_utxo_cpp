@@ -20,12 +20,13 @@ add_library(${PROJECT_NAME}-lib
         src/db/UtxoDb.h
         src/controller/UtxoController.h
         src/service/UtxoService.h
-        src/service/UtxoService.cpp)
+        src/service/UtxoService.cpp src/dto/Address.h)
 
 target_include_directories(${PROJECT_NAME}-lib PUBLIC src)
 
-find_package(oatpp 1.2.5 REQUIRED)
-find_package(oatpp-postgresql 1.2.5 REQUIRED)
+## link libs
+find_package(oatpp              1.2.5 REQUIRED)
+find_package(oatpp-postgresql   1.2.5 REQUIRED)
 
 target_link_libraries(${PROJECT_NAME}-lib
         PUBLIC oatpp::oatpp

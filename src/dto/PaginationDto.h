@@ -10,9 +10,12 @@ class PaginationDto : public oatpp::DTO {
     DTO_INIT(PaginationDto, DTO)
 
     DTO_FIELD(UInt32, offset);
+
     DTO_FIELD(UInt32, limit);
+
     DTO_FIELD(UInt32, count);
-    DTO_FIELD(Vector<T>, items);
+
+    DTO_FIELD(Vector <T>, items);
 };
 
 class UtxoPageDto : public PaginationDto<oatpp::Object<UtxoDto>> {
